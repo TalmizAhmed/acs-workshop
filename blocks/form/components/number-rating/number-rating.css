@@ -1,2 +1,133 @@
 /* Number-rating component styles */
-  /* Add your custom styles here */
+
+/* Override card layout for number rating to create a horizontal bar */
+.field-number-rating-custom.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Container for the rating buttons */
+.field-number-rating-custom .rating-container {
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0.5rem 0;
+}
+
+/* Individual rating buttons */
+.field-number-rating-custom .rating-container .radio-wrapper {
+  flex: 1;
+  margin: 0;
+  min-width: auto;
+  max-width: none;
+}
+
+.field-number-rating-custom .rating-container .radio-wrapper > label {
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  padding: 12px 8px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  position: relative;
+  box-shadow: none;
+}
+
+/* Color coding for different ranges */
+/* Red zone (0-6) - Detractors */
+.field-number-rating-custom .rating-container .radio-wrapper:nth-child(-n+7) > label {
+  background-color: #ff6b6b;
+  color: white;
+}
+
+.field-number-rating-custom .rating-container .radio-wrapper:nth-child(-n+7) > label:hover {
+  background-color: #ff5252;
+  transform: none;
+}
+
+/* Yellow zone (7-8) - Passives */
+.field-number-rating-custom .rating-container .radio-wrapper:nth-child(n+8):nth-child(-n+9) > label {
+  background-color: #ffa726;
+  color: white;
+}
+
+.field-number-rating-custom .rating-container .radio-wrapper:nth-child(n+8):nth-child(-n+9) > label:hover {
+  background-color: #ff9800;
+  transform: none;
+}
+
+/* Green zone (9-10) - Promoters */
+.field-number-rating-custom .rating-container .radio-wrapper:nth-child(n+10) > label {
+  background-color: #66bb6a;
+  color: white;
+}
+
+.field-number-rating-custom .rating-container .radio-wrapper:nth-child(n+10) > label:hover {
+  background-color: #4caf50;
+  transform: none;
+}
+
+/* Selected state */
+.field-number-rating-custom .rating-container .radio-wrapper > input:checked ~ label {
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.8);
+  transform: scale(1.05);
+  z-index: 2;
+  border: 2px solid white;
+}
+
+/* Remove the default selected indicator dot */
+.field-number-rating-custom .rating-container .radio-wrapper > input:checked ~ label::after {
+  display: none;
+}
+
+/* Focus states for accessibility */
+.field-number-rating-custom .rating-container .radio-wrapper > input:focus ~ label {
+  outline: 2px solid #2196F3;
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+/* Labels container */
+.field-number-rating-custom .rating-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  padding: 0 4px;
+}
+
+.field-number-rating-custom .rating-labels .label-text {
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .field-number-rating-custom .rating-container .radio-wrapper > label {
+    padding: 10px 4px;
+    font-size: 12px;
+    min-height: 40px;
+  }
+  
+  .field-number-rating-custom .rating-labels .label-text {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .field-number-rating-custom .rating-container .radio-wrapper > label {
+    padding: 8px 2px;
+    font-size: 11px;
+    min-height: 36px;
+  }
+}
