@@ -685,15 +685,16 @@
           }
         },
         {
-          "title": "Number rating",
-          "id": "number-rating",
+          "title": "Card choice",
+          "id": "card-choice",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/fd/components/form/radiobutton/v1/radiobutton",
                 "template": {
-                  "jcr:title": "Number rating",
+                  "jcr:title": "Card choice",
                   "fieldType": "radio-group",
+                  "type": "object",
                   "enum": [
                     "0",
                     "1"
@@ -703,7 +704,7 @@
                     "Item 2"
                   ],
                   "orientation": "horizontal",
-                  "fd:viewType": "number-rating"
+                  "fd:viewType": "card-choice"
                 }
               }
             }
