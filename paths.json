@@ -1,6 +1,7 @@
 {
   "mappings": [
-    "/:/"
+    "/:/",
+    "/content/sample-form/headers:/.helix/headers.json"
   ],
   "includes": [
     "/content/",
