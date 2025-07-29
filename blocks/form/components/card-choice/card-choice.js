@@ -26,8 +26,8 @@ function populateCards(cardsData, element) {
     Object.entries(card).forEach(([key, value]) => {
       const feature = document.createElement('li');
       feature.className = 'card-choice-feature';
-      if(key === 'image-path') {
-        const img = createOptimizedPicture(value);
+      if(key === 'image') {
+        const img = createOptimizedPicture(`/blocks/form/components/card-choice/card-images/${value}`);
         feature.appendChild(img);
       } else if(key === 'benefits') {
       // Split the value at commas, trim, and create bullets
