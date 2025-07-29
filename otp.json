@@ -1,4 +1,4 @@
 {
-    "success": true,
+    "status": "success",
     "message": "OTP validated successfully"
 }
