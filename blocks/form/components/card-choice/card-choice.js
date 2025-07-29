@@ -1,7 +1,7 @@
 import { createOptimizedPicture } from '../../../../scripts/aem.js';
 import { subscribe } from '../../rules/index.js';
 
-function populateCards(cardsData) {
+function populateCards(cardsData, element) {
   // Create a container for the cards
   const cardsContainer = document.createElement('div');
   cardsContainer.className = 'card-choice-container';
@@ -65,7 +65,7 @@ export default function decorate(element, fieldJson, container, formId) {
       payload?.changes?.forEach((change) => {
         const { propertyName, currentValue } = change;
         if (propertyName === 'enum') {
-          populateCards(currentValue);
+          populateCards(currentValue, element);
           fieldModel.value = fieldModel.enum?.[0]; // set the first value as the default value
         }
       });
