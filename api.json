@@ -15,6 +15,6 @@
         "id": "the-ultimate-card",
         "title": "The Ultimate Card",
         "benefits": ["Upto 7.5% NeuCoins", "2% back as NeuCoins on Tata Brands", "Joining/ Renewal Fees - ₹500/-"],
-        "image": "./public/the-ultimate.png"
+        "image": "https://main--acs-workshop--talmizahmed.aem.live/public/the-ultimate.png"
     }
 ]
