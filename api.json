@@ -6,21 +6,15 @@
         "image": "https://main--acs-workshop--talmizahmed.aem.live/public/rewards-card.png"
     },
     {
-        "id": "low-rate-card",
-        "title": "Low Rate Card",
-        "benefits": ["Upto 5% Fuel Points", "₹150 spent = 1 Reward Point", "Joining/ Renewal Fees - ₹500/-"],
-        "image": "https://main--acs-workshop--talmizahmed.aem.live/public/low-rate.png"
-    },
-    {
         "id": "low-fee-card",
         "title": "Low Fee Card",
-        "benefits": ["Upto 4X Reward Points", "₹150 spent = 2 Reward Point", "Joining/ Renewal Fees - ₹500/-"],
+        "benefits": ["Upto 4X Reward Points", "₹150 spent = 1 Reward Point", "Joining/ Renewal Fees - ₹200/-"],
         "image": "https://main--acs-workshop--talmizahmed.aem.live/public/low-fee.png"
     },
     {
         "id": "the-ultimate-card",
         "title": "The Ultimate Card",
         "benefits": ["Upto 7.5% NeuCoins", "2% back as NeuCoins on Tata Brands", "Joining/ Renewal Fees - ₹500/-"],
-        "image": "https://main--acs-workshop--talmizahmed.aem.live/public/the-ultimate.png"
+        "image": "./public/the-ultimate.png"
     }
 ]
