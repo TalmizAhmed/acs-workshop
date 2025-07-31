@@ -327,11 +327,11 @@ export function createRadioOrCheckboxUsingEnum(fd, wrapper) {
   const type = fd.fieldType.split('-')[0];
   const isSameLength = fd.enum?.length === fd.enumNames?.length;
   fd.enum.forEach((value, index) => {
-    let labelValues = fd?.enumNames;
+    let labelValues = fd?.enumNames || fd?.enum;
     if (!isSameLength) {
       labelValues = fd?.enum;
     }
-    const label = (typeof labelValues?.[index] === 'object' && labelValues?.[index] !== null) ? labelValues[index].value : labelValues?.[index] || value;
+    const label = (typeof labelValues?.[index] === 'object' && labelValues?.[index] !== null) ? labelValues[index].value ?? toString(labelValues[index]) : labelValues?.[index] || value;
     const id = getId(fd.name);
     const field = createRadioOrCheckbox({
       name: fd.name,
