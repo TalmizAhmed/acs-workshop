@@ -26,22 +26,21 @@ function populateCards(cardsData, element) {
     Object.entries(card).forEach(([key, value]) => {
       const feature = document.createElement('li');
       feature.className = 'card-choice-feature';
-      if(key === 'image') {
-        const img = createOptimizedPicture(`/blocks/form/components/card-choice/card-images/${value}`);
+      if (key === 'image') {
+        const img = createOptimizedPicture(value, 'card-image');
         feature.appendChild(img);
-      } else if(key === 'benefits') {
-      // Split the value at commas, trim, and create bullets
-      const benefits = value.split(',').map(b => b.trim()).filter(Boolean);
-      const benefitsUl = document.createElement('ul');
-      benefitsUl.className = 'card-choice-benefits-list';
-      benefits.forEach(benefit => {
-        const li = document.createElement('li');
-        li.textContent = benefit;
-        benefitsUl.appendChild(li);
-      });
-      feature.appendChild(benefitsUl);
-
-      }else {
+      } else if (key === 'benefits') {
+        // Split the value at commas, trim, and create bullets
+        const benefits = value.split(',').map(b => b.trim()).filter(Boolean);
+        const benefitsUl = document.createElement('ul');
+        benefitsUl.className = 'card-choice-benefits-list';
+        benefits.forEach(benefit => {
+          const li = document.createElement('li');
+          li.textContent = benefit;
+          benefitsUl.appendChild(li);
+        });
+        feature.appendChild(benefitsUl);
+      } else {
         feature.innerHTML = `</span> <span class='feature-value'>${value}</span>`;
       }
       featuresList.appendChild(feature);
@@ -57,6 +56,15 @@ function populateCards(cardsData, element) {
 }
 
 export default function decorate(element, fieldJson, container, formId) {
+  const initialItems = fieldJson.enumNames.map((item) => {
+    return {
+      name: item,
+      description: 'description',
+      image: `${item}-image.png`,
+      benefits: 'benefits'
+    }
+  });
+  populateCards(initialItems, element);
 
   // subscribing to model changes to populate the cards
   subscribe(element, formId, (fieldDiv, fieldModel) => {
