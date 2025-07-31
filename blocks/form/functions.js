@@ -53,5 +53,21 @@ function maskMobileNumber(mobileNumber) {
   return '*'.repeat(5) + value.substring(5);
 }
 
+/**
+ * Generate OTP message with masked mobile number
+ * @param {string} message - The custom message to display
+ * @param {string} mobileNumber - The mobile number to mask
+ * @return {string} Returns a message with the last 4 digits of the mobile number visible
+ */
+function otpMessage(message, mobileNumber) {
+  if (!mobileNumber || typeof mobileNumber !== 'string') {
+    return message || 'We\'ve sent a 6-digit OTP to your registered mobile number';
+  }
+  
+  const lastFourDigits = mobileNumber.slice(-4);
+  return `${message} ******${lastFourDigits}`;
+}
+
 // eslint-disable-next-line import/prefer-default-export
-export { getFullName, days, submitFormArrayToString, maskMobileNumber };
+export { getFullName, days, submitFormArrayToString, otpMessage, maskMobileNumber };
+
