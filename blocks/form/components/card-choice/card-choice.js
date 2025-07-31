@@ -31,10 +31,10 @@ function populateCards(cardsData, element) {
         feature.appendChild(img);
       } else if (key === 'benefits') {
         // Split the value at commas, trim, and create bullets
-        const benefits = value.split(',').map(b => b.trim()).filter(Boolean);
+        const benefits = value.split(',').map((b) => b.trim()).filter(Boolean);
         const benefitsUl = document.createElement('ul');
         benefitsUl.className = 'card-choice-benefits-list';
-        benefits.forEach(benefit => {
+        benefits.forEach((benefit) => {
           const li = document.createElement('li');
           li.textContent = benefit;
           benefitsUl.appendChild(li);
@@ -56,14 +56,12 @@ function populateCards(cardsData, element) {
 }
 
 export default function decorate(element, fieldJson, container, formId) {
-  const initialItems = fieldJson.enumNames.map((item) => {
-    return {
-      name: item,
-      description: 'description',
-      image: `${item}-image.png`,
-      benefits: 'benefits'
-    }
-  });
+  const initialItems = fieldJson.enumNames.map((item) => ({
+    name: item,
+    description: 'description',
+    image: `${item}-image.png`,
+    benefits: 'benefits',
+  }));
   populateCards(initialItems, element);
 
   // subscribing to model changes to populate the cards
