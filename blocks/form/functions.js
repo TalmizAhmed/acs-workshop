@@ -50,7 +50,7 @@ function days(endDate, startDate) {
 function maskMobileNumber(mobileNumber) {
   const value = mobileNumber.toString();
   // Mask first 5 digits and keep the rest
-  return '*'.repeat(5) + value.substring(5);
+  return ` ${'*'.repeat(5)}${value.substring(5)}`;
 }
 
 /**
